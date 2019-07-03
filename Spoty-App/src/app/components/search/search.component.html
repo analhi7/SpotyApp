@@ -1,0 +1,16 @@
+<div *ngIf = "error "  class="alert alert-danger animated fadeIn">
+    <h3>Error</h3>
+    <p>
+        {{messageError}}
+    </p>
+
+</div>
+
+<div>
+  <div>
+    <input  *ngIf = "!error " #term type="text" (keyup)="search(term.value)" class="form-control" placeholder="Search Artist..." />
+  </div>
+</div>
+
+<app-loadig *ngIf="loading" class="m-5"></app-loadig>
+<app-cards *ngIf="!loading"[items]="artists" ></app-cards>
